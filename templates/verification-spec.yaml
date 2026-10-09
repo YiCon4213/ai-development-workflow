@@ -1,0 +1,61 @@
+version: 1
+task_id: TASK-001
+designed_by: null
+designed_at: null
+basis:
+  architecture: .tasks/architecture.md
+  fingerprint_algorithm: canonical-json-v1
+  task_card_fingerprint: null
+  git_head: null
+  worktree_state: dirty
+oracle_sources:
+- id: AC-001
+  source: .tasks/cards/active/TASK-001.yaml acceptance AC-001
+  statement: 复制批准的 AC 原文
+policy:
+  frozen:
+  - 业务结果、禁止结果、安全与数据边界、必需风险及证据映射
+  adaptable:
+  - 命令、夹具、选择器、等价或更强证据的测试层级，记录理由
+cases:
+- id: VER-001
+  maps_to:
+  - AC-001
+  evidence_gate: both
+  layer: integration
+  risk: 填写重要失败模式
+  setup:
+  - 真实前置条件
+  action:
+  - 可执行操作
+  expected:
+  - 可观察正确结果
+  forbidden:
+  - 禁止结果
+  evidence:
+    type: test_report
+    locator: 真实报告及用例名
+required_automation:
+- id: AUTO-001
+  covers:
+  - VER-001
+  run: 替换成仓库原生命令
+  expected: 命名检查实际执行且通过
+user_acceptance:
+- id: UAT-001
+  covers:
+  - VER-001
+  purpose: 真实环境增加的证据
+  prerequisites:
+  - 账号、环境和配置
+  test_data:
+  - 明确数据与已知结果
+  steps:
+  - 从真实入口开始操作
+  expected:
+  - 逐步对应观察结果
+  evidence:
+  - 保留的响应或截图
+  cleanup:
+  - 恢复状态
+  decision: unverified

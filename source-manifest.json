@@ -1,0 +1,50 @@
+{
+  "extracted_at": "2026-10-09",
+  "basis": "working-tree files; source hashes before generalization",
+  "files": [
+    {
+      "source": "task-workflow",
+      "sha256": "0a97486d9f0f1d43cd29dd22f0f29aafca68705cf0719d13fc9550ba61f5efe7"
+    },
+    {
+      "source": "taskctl",
+      "sha256": "17f75b4c4f29b3bf49d2430913593d6bd4fb735de18c4de5e1f6a5f8d3b079e3"
+    },
+    {
+      "source": "user-supplied-skills/architect/references/assumption-audit.md",
+      "sha256": "04799db275622ff1a72539df91e3e2157e7bc5b115d591881e7bc5bf53963be0"
+    },
+    {
+      "source": "user-supplied-skills/architect/references/task-relations-and-schema.md",
+      "sha256": "50da7514846441b19bde0a406c2c2795f314559db1dcbf61c2866a7f9aa14999"
+    },
+    {
+      "source": "user-supplied-skills/architect/SKILL.md",
+      "sha256": "dc27aad13e7b48a14719e0149ba761c64fffa0e04e3ea6efbf69558234b95e6f"
+    },
+    {
+      "source": "user-supplied-skills/verification-owner/references/risk-and-test-matrix.md",
+      "sha256": "1cff9d690a9938add636bf2e7576a84c40aa54ec5ef2a73b93868c9ce6e66c0f"
+    },
+    {
+      "source": "user-supplied-skills/verification-owner/references/verification-spec.md",
+      "sha256": "44605321402b9c11b687656d4fca569e510498a7ddb07e654850c89eaf3ca3ad"
+    },
+    {
+      "source": "user-supplied-skills/verification-owner/SKILL.md",
+      "sha256": "c7581b7ad6906b081a76a4a32f991eab498fb82aafe31f24bf5ba93256646757"
+    },
+    {
+      "source": "user-supplied-skills/coding-owner/references/user-acceptance.md",
+      "sha256": "e9e5d9bfd3833abc44b5e496b3d46f4f63c6327916316969b19e4b5cabe743f0"
+    },
+    {
+      "source": "user-supplied-skills/coding-owner/references/verification-execution.md",
+      "sha256": "79510214cd80666f49c9cf29f06dfe8166f398fa5d52e492e79dd8b821115ae0"
+    },
+    {
+      "source": "user-supplied-skills/coding-owner/SKILL.md",
+      "sha256": "be6be25f39a6ece5ef1aa62b6f204ed2a254121812ca359609e5f5a70c834adb"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+schema_version: 2
+task:
+  id: TASK-003
+  title: 报告下载状态与失败提示
+  status: pending
+  goal: 下载成功可见，失败可重试且不展示虚假成功。
+  scope:
+    in:
+    - 本次范围
+    out:
+    - 明确排除的范围
+  constraints:
+  - 批准的约束
+  forbidden:
+  - 禁止的捷径
+  acceptance:
+  - id: AC-001
+    expect: 成功下载给出完成提示；403 显示权限错误且不显示成功。
+  relations:
+  - task: TASK-002
+    type: integration_order
+    reason: 组件可基于稳定契约独立实现
+    verification_gate: 真实下载 E2E 等待导出服务可用
+  parallelism:
+    mode: parallel
+    reason: 界面可使用已批准契约独立实现
+  risk_level: L2
+  escalation_conditions:
+  - 公开契约或批准边界需要改变
+  verification:
+    required: true
+    status: pending
+    spec: .tasks/verification/TASK-003.yaml
+    designed_by: null
+    designed_at: null
+    basis_fingerprint: null
+    waiver_reason: null
+  result:
+    owner: null
+    attempts: 0
+    completed_at: null
+    accepted_at: null
+    evidence_ref: .tasks/evidence/TASK-003.yaml

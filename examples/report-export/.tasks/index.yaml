@@ -1,0 +1,22 @@
+schema_version: 2
+generated: true
+active:
+- id: TASK-002
+  title: 受权限保护的报告导出
+  status: ready
+  risk_level: L3
+  card: .tasks/cards/active/TASK-002.yaml
+  verification: .tasks/verification/TASK-002.yaml
+  evidence: .tasks/evidence/TASK-002.yaml
+  hard_dependencies:
+  - TASK-001
+  blocked_by: []
+- id: TASK-003
+  title: 报告下载状态与失败提示
+  status: pending
+  risk_level: L2
+  card: .tasks/cards/active/TASK-003.yaml
+  verification: .tasks/verification/TASK-003.yaml
+  evidence: .tasks/evidence/TASK-003.yaml
+  hard_dependencies: []
+  blocked_by: []

@@ -1,0 +1,17 @@
+schema_version: 1
+task_id: TASK-001
+verification_snapshot:
+  git_head: null
+  worktree_state: dirty
+  task_card_fingerprint: null
+  snapshot_id: null
+records:
+- id: EVID-001
+  covers:
+  - AC-001
+  type: user_acceptance
+  status: pass
+  summary: 'SYNTHETIC: 虚构用户整体通过，仅演示结构。'
+  synthetic: true
+verification_deviations: []
+follow_up_candidates: []

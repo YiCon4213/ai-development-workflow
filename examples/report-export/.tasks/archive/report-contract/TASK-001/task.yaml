@@ -1,0 +1,39 @@
+schema_version: 2
+task:
+  id: TASK-001
+  title: 确定 CSV 字段契约
+  status: done
+  goal: 确定导出字段与权限边界
+  scope:
+    in:
+    - 字段与授权文档
+    out:
+    - 代码实现
+  constraints:
+  - 仅定义契约
+  forbidden:
+  - 不得增加敏感字段
+  acceptance:
+  - id: AC-001
+    expect: 契约仅包含 report_id、title，并明确仅导出当前用户可访问报告。
+  relations: []
+  parallelism:
+    mode: parallel
+    reason: 独立契约文档
+  risk_level: L1
+  escalation_conditions:
+  - 公开契约或批准边界需要改变
+  verification:
+    required: false
+    status: waived
+    spec: null
+    designed_by: null
+    designed_at: null
+    basis_fingerprint: null
+    waiver_reason: 纯文档契约，以字段结构核对及用户审核验证，无生产行为变化。
+  result:
+    owner: synthetic-doc-owner
+    attempts: 0
+    completed_at: '2026-01-01T10:00:00+08:00'
+    accepted_at: '2026-01-01T11:00:00+08:00'
+    evidence_ref: .tasks/archive/report-contract/TASK-001/evidence.yaml

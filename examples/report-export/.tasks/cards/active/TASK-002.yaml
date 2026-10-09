@@ -1,0 +1,43 @@
+schema_version: 2
+task:
+  id: TASK-002
+  title: 受权限保护的报告导出
+  status: ready
+  goal: 用户只能导出自己可访问报告，导出遵守字段契约。
+  scope:
+    in:
+    - 导出授权与 CSV 响应
+    out:
+    - 下载提示组件
+  constraints:
+  - 授权在服务端判断
+  forbidden:
+  - 返回其他用户报告
+  acceptance:
+  - id: AC-001
+    expect: 本人报告输出仅包含 report_id、title；未授权请求失败且无受保护内容。
+  relations:
+  - task: TASK-001
+    type: hard
+    reason: 消费已批准字段与授权约定
+    required_artifact: .tasks/architecture.md 中的 CSV 公开契约
+  parallelism:
+    mode: parallel
+    reason: 可与下载提示组件独立实现
+  risk_level: L3
+  escalation_conditions:
+  - 公开契约或批准边界需要改变
+  verification:
+    required: true
+    status: ready
+    spec: .tasks/verification/TASK-002.yaml
+    designed_by: synthetic-verifier
+    designed_at: '2026-01-02T10:00:00+08:00'
+    basis_fingerprint: 28274feb27b94c12485b876edfee279a19beda84402c04bea499e0fca41379ad
+    waiver_reason: null
+  result:
+    owner: null
+    attempts: 0
+    completed_at: null
+    accepted_at: null
+    evidence_ref: .tasks/evidence/TASK-002.yaml

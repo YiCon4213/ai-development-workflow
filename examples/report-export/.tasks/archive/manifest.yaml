@@ -1,0 +1,10 @@
+schema_version: 1
+generated: true
+archived:
+- id: TASK-001
+  task: .tasks/archive/report-contract/TASK-001/task.yaml
+  task_sha256: 423bd83b72162128e18f3cf75b607e587041ca4893ff84f4dca78da7ea51725a
+  evidence: .tasks/archive/report-contract/TASK-001/evidence.yaml
+  evidence_sha256: e3b95173bdc6cf59062b72f3a5df0e965d56725d857fa1850fd17a275cf890e1
+  verification: null
+  verification_sha256: null

@@ -1,0 +1,82 @@
+version: 1
+task_id: TASK-002
+designed_by: synthetic-verifier
+designed_at: '2026-01-02T10:00:00+08:00'
+basis:
+  architecture: .tasks/architecture.md
+  fingerprint_algorithm: canonical-json-v1
+  task_card_fingerprint: 28274feb27b94c12485b876edfee279a19beda84402c04bea499e0fca41379ad
+  git_head: null
+  worktree_state: dirty
+oracle_sources:
+- id: AC-001
+  source: .tasks/cards/active/TASK-002.yaml acceptance AC-001
+  statement: 本人报告输出仅包含 report_id、title；未授权请求失败且无受保护内容。
+policy:
+  frozen:
+  - 业务结果、禁止结果、安全与数据边界、必需风险及证据映射
+  adaptable:
+  - 命令、夹具、选择器、等价或更强证据的测试层级，记录理由
+cases:
+- id: VER-001
+  maps_to:
+  - AC-001
+  evidence_gate: automated
+  layer: contract
+  risk: CSV 契约漂移
+  setup:
+  - 账号 A 的 R-A 报告标题为 Alpha
+  action:
+  - A 导出 R-A
+  expected:
+  - 标题行为 report_id,title；唯一数据行为 R-A,Alpha
+  forbidden:
+  - 额外字段或他人报告
+  evidence:
+    type: test_report
+    locator: test_export_contract
+- id: VER-002
+  maps_to:
+  - AC-001
+  evidence_gate: both
+  layer: security
+  risk: 越权泄露
+  setup:
+  - R-B 属于 B 且 A 没有访问权限
+  action:
+  - A 请求导出 R-B
+  expected:
+  - 403，响应无 R-B 内容
+  forbidden:
+  - 200 或泄露标题
+  evidence:
+    type: response
+    locator: test_export_denied 和真实环境 UAT-001
+required_automation:
+- id: AUTO-001
+  covers:
+  - VER-001
+  - VER-002
+  run: python -m unittest tests.test_report_export -v
+  expected: test_export_contract / test_export_denied 实际执行并通过
+user_acceptance:
+- id: UAT-001
+  covers:
+  - VER-002
+  purpose: 确认真实账号会话授权边界
+  prerequisites:
+  - 虚构演示服务运行
+  - 账号 A、B 且互不可见
+  test_data:
+  - A 的 R-A/Alpha；B 的 R-B/Beta
+  steps:
+  - A 登录并下载 R-A
+  - 以 A 会话请求 R-B 导出
+  expected:
+  - CSV 仅含 A 数据
+  - 请求 R-B 返回 403 且无 Beta
+  evidence:
+  - 响应状态与脱敏下载记录
+  cleanup:
+  - 清除测试报告和下载文件
+  decision: unverified

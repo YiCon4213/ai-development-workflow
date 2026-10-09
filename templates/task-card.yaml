@@ -1,0 +1,39 @@
+schema_version: 2
+task:
+  id: TASK-001
+  title: 填写成果名称
+  status: pending
+  goal: 填写可观察目标
+  scope:
+    in:
+    - 本次范围
+    out:
+    - 明确排除的范围
+  constraints:
+  - 批准的约束
+  forbidden:
+  - 禁止的捷径
+  acceptance:
+  - id: AC-001
+    expect: 填写可观察的正确结果
+  relations: []
+  parallelism:
+    mode: parallel
+    reason: 填写技术依据
+  risk_level: L2
+  escalation_conditions:
+  - 公开契约或批准边界需要改变
+  verification:
+    required: true
+    status: pending
+    spec: .tasks/verification/TASK-001.yaml
+    designed_by: null
+    designed_at: null
+    basis_fingerprint: null
+    waiver_reason: null
+  result:
+    owner: null
+    attempts: 0
+    completed_at: null
+    accepted_at: null
+    evidence_ref: .tasks/evidence/TASK-001.yaml

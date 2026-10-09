@@ -1,0 +1,10 @@
+schema_version: 1
+task_id: TASK-002
+verification_snapshot:
+  git_head: null
+  worktree_state: dirty
+  task_card_fingerprint: null
+  snapshot_id: null
+records: []
+verification_deviations: []
+follow_up_candidates: []
